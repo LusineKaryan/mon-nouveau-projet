@@ -24,7 +24,7 @@ class BdController extends AbstractController
     public function home(): Response
     {
         return $this->render('bd/home.html.twig', [
-            'title' => 'Bienvenue!',
+            'title' => 'Bienvenue sur le site des BD!',
             'age' => 12,
         ]);
     }
