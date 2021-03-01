@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BdController extends AbstractController
 {
     /**
-     * @Route("/bd", name="bd")
+     * @Route("/auteurs", name="bd")
      */
     public function index(): Response
     {
@@ -27,5 +27,13 @@ class BdController extends AbstractController
             'title' => 'Bienvenue sur le site des BD!',
             'age' => 12,
         ]);
+    }
+
+     /**
+     * @Route("/bd/livre/1", name="bd_show")
+     */
+    public function show(): Response
+    {
+        return $this->render('bd/show.html.twig');
     }
 }
