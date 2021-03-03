@@ -18,7 +18,7 @@ class Produit
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $heros;
 
@@ -56,6 +56,23 @@ class Produit
      * @ORM\Column(type="string", length=50)
      */
     private $titre;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Genre::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $genre;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Fournisseur::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $fournisseur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Editeur::class)
+     */
+    private $editeur;
 
     public function getId(): ?int
     {
@@ -154,6 +171,42 @@ class Produit
     public function setTitre(string $titre): self
     {
         $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getGenre(): ?Genre
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?Genre $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getFournisseur(): ?Fournisseur
+    {
+        return $this->fournisseur;
+    }
+
+    public function setFournisseur(?Fournisseur $fournisseur): self
+    {
+        $this->fournisseur = $fournisseur;
+
+        return $this;
+    }
+
+    public function getEditeur(): ?Editeur
+    {
+        return $this->editeur;
+    }
+
+    public function setEditeur(?Editeur $editeur): self
+    {
+        $this->editeur = $editeur;
 
         return $this;
     }
