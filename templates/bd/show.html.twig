@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La liste des auteurs {% endblock %}
+{% block title %}Les bandes dessinnées {% endblock %}
 
 {% block body %}
 <style>
@@ -8,8 +8,15 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Les ouvrages ✅</h1>
-
-</div>
+<article>
+    <h2>{{ auteur.auteur }}</h2>
+        <div>Titre de la bd
+            <div class="content">
+            <img src="http://placehold.it/350x350" alt="">
+                <p>Lorem</p>
+                <hr>
+            </img>
+            </div>
+        </div>
+</article>
 {% endblock %}
