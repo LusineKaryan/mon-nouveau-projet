@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\AuteurRepository;
+use App\Repository\ProduitRepository;
 
 class BdController extends AbstractController
 {
@@ -33,10 +34,13 @@ class BdController extends AbstractController
     }
 
      /**
-     * @Route("/bd/livre/1", name="bd_show")
+     * @Route("/bd/livre/{id}", name="bd_show")
      */
-    public function show(): Response
+    public function show($id, ProduitRepository $repo)
     {
-        return $this->render('bd/show.html.twig');
+        $produits = $repo->findAll();
+        return $this->render('bd/show.html.twig', [
+            'produits' => $produits
+        ]);
     }
 }
